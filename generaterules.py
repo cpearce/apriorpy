@@ -20,7 +20,7 @@ def calc_stats(
 
 def is_sorted(candidates) -> bool:
     for i in range(1, len(candidates)):
-        if candidates[i-1] > candidates[i]:
+        if candidates[i - 1] > candidates[i]:
             return False
     return True
 
@@ -67,10 +67,10 @@ def generate_rules_for_itemset(
         next_gen = []
         m = len(candidates[0])
         for i1 in range(len(candidates)):
-            for i2 in range(i1+1, len(candidates)):
+            for i2 in range(i1 + 1, len(candidates)):
                 c1 = candidates[i1]
                 c2 = candidates[i2]
-                if prefix_match_len(c1, c2) != m-1:
+                if prefix_match_len(c1, c2) != m - 1:
                     # Consequents in the candidates list are sorted, and the
                     # candidates list itself is sorted. So we can stop
                     # testing combinations once our iteration reaches another

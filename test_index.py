@@ -32,5 +32,6 @@ def test_InvertedIndex():
     sup_zxy = index.support({item_id("z"), item_id("x"), item_id("y")})
     assert(sup_zxy == 2 / 6)
 
-    sup_zxyi = index.support({item_id("z"), item_id("x"), item_id("y"), item_id("i")})
+    sup_zxyi = index.support(
+        {item_id("z"), item_id("x"), item_id("y"), item_id("i")})
     assert(sup_zxyi == 1 / 6)

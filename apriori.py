@@ -3,8 +3,10 @@ from index import InvertedIndex
 import math
 
 
-# Returns list of tuples containing the itemset (list of int) and their count (int)
-def apriori(index: InvertedIndex, minsup: float) -> List[Tuple[List[int], int]]:
+# Returns list of tuples containing the itemset (list of int) and their
+# count (int)
+def apriori(index: InvertedIndex,
+            minsup: float) -> List[Tuple[List[int], int]]:
     min_count = math.ceil(minsup * len(index))
     candidates = initial_candidates(index, min_count)
     results = candidates
@@ -30,7 +32,7 @@ def generate(
 
     generation: List[Tuple[List[int], int]] = []
     for i, a in enumerate(candidates):
-        for b in candidates[i+1:]:
+        for b in candidates[i + 1:]:
             a_items = a[0]
             b_items = b[0]
             if not prefix_match(a_items, b_items):
@@ -43,7 +45,8 @@ def generate(
     return generation
 
 
-def initial_candidates(index: InvertedIndex, min_count: int) -> List[Tuple[List[int], int]]:
+def initial_candidates(index: InvertedIndex,
+                       min_count: int) -> List[Tuple[List[int], int]]:
     candidates = []
     for item in sorted(index.items()):
         count = index.count([item])
@@ -56,9 +59,10 @@ def prefix_match(a: List[int], b: List[int]) -> bool:
     return a[0: -1] == b[0: -1]
 
 
-def contains_all_subsets(candidate: List[int], previous_generation: Set[Tuple[int, ...]]) -> bool:
+def contains_all_subsets(
+        candidate: List[int], previous_generation: Set[Tuple[int, ...]]) -> bool:
     for i in range(len(candidate)):
-        subset = tuple(candidate[: i] + candidate[i+1:])
+        subset = tuple(candidate[: i] + candidate[i + 1:])
         if subset not in previous_generation:
             return False
     return True
