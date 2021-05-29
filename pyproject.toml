@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "apriori"
+name = "apriorpy"
 version = "0.1.0"
 description = "Association Rule Minining with Apriori"
 authors = ["Chris Pearce <chris@pearce.org.nz>"]
