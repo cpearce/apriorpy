@@ -21,4 +21,7 @@ def item_id(name: str) -> int:
 
 
 def item_str(id) -> str:
-    return itemIdToName[id]
+    name = itemIdToName.get(id)
+    if name:
+        return name
+    return str(name)
