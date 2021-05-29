@@ -1,0 +1,4 @@
+#!/bin/sh
+# https://pypi.python.org/pypi/autopep8
+#   poetry install
+poetry run autopep8 --in-place --aggressive --aggressive *.py
